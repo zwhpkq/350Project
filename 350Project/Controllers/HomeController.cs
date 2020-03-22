@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _350Project.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -23,6 +24,22 @@ namespace _350Project.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
+        public ActionResult SignUp()
+        {
+            ViewBag.Message = "Member sign up";
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SignUp(MemberModel model)
+        {
+            ViewBag.Message = "Member sign up";
 
             return View();
         }
