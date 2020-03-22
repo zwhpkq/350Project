@@ -6,7 +6,7 @@
     <Name>_350ProjectDatabase</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{2fe14453-44ad-408e-bbd9-039d6483b7d2}</ProjectGuid>
+    <ProjectGuid>{55780a23-c6b9-44f5-b3c8-ccdfbc857f66}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
