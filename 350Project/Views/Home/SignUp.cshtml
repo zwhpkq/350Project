@@ -4,15 +4,20 @@
     ViewBag.Title = "Membership SignUp";
 }
 
-<body style=
-      "background-image: url(~/Views/Image/background1.jpg); background-repeat:no-repeat; background-attachment:fixed; background-size:cover">
+@section styles{
+    <body style= "background-image: url('@Url.Content("~/Content/Image/background1.png")');    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;"
+          >
+        </body>
+}
 
-</body>
-<h2>Membership SignUp</h2>
+<h2 class="mt-lg-5">Membership SignUp</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
+
 
     <div class="form-horizontal">
         <hr />
