@@ -39,7 +39,9 @@ namespace _350Project.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult SignUp(MemberModel model)
         {
-            ViewBag.Message = "Member sign up";
+            if (ModelState.IsValid) { 
+
+            }
 
             return View();
         }
