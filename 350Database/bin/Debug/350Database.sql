@@ -40,11 +40,11 @@ USE [$(DatabaseName)];
 
 
 GO
-PRINT N'正在删除 <未命名>...';
+PRINT N'正在删除 [dbo].[Members] 上未命名的约束...';
 
 
 GO
-ALTER TABLE [dbo].[Members] DROP CONSTRAINT [CK__Members__Member___60A75C0F];
+ALTER TABLE [dbo].[Members] DROP CONSTRAINT [CK__Members__Member___6FE99F9F];
 
 
 GO

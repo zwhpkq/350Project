@@ -30,7 +30,7 @@ namespace _350Project.Models
 
         [Display(Name = "Email Address")]
         [DataType(DataType.EmailAddress)]
-        [Remote("IsEmailExists", "Home", ErrorMessage = "Email already in use")]
+        [Remote("IsEmailExists", "Home",HttpMethod ="POST" ,ErrorMessage = "Email already in use")]
         [Required(ErrorMessage = "Please give us your email address")]
         public String MemberEmail { get; set; }
 

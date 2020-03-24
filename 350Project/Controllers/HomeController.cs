@@ -55,6 +55,7 @@ namespace _350Project.Controllers
         [HttpPost]
         public ActionResult IsEmailExists(string MemberEmail)
         {
+
             string sql = "Select Member_Email From dbo.Members";
 
             List < string > emails = SqlAccess.LoadData<string>(sql);
