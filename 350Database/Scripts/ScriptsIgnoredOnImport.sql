@@ -1,23 +1,4 @@
-﻿
-drop table if exists Attendance;
-GO
-
-drop table if exists Coaches;
-GO
-
-drop table if exists Events;
-GO
-
-drop table if exists Members;
-GO
-
-drop table if exists Bodyinfo;
-GO
-
-drop table if exists Plans;
-GO
-
-Insert INTO Plans Values (1, 1,0,0,100);
+﻿Insert INTO Plans Values (1, 1,0,0,100);
 GO
 
 Insert INTO Plans Values (2, 0,6,0,60);

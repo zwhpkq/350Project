@@ -40,184 +40,11 @@ USE [$(DatabaseName)];
 
 
 GO
-IF EXISTS (SELECT 1
-           FROM   [master].[dbo].[sysdatabases]
-           WHERE  [name] = N'$(DatabaseName)')
-    BEGIN
-        ALTER DATABASE [$(DatabaseName)]
-            SET ARITHABORT ON,
-                CONCAT_NULL_YIELDS_NULL ON,
-                CURSOR_DEFAULT LOCAL 
-            WITH ROLLBACK IMMEDIATE;
-    END
+PRINT N'正在删除 <未命名>...';
 
 
 GO
-IF EXISTS (SELECT 1
-           FROM   [master].[dbo].[sysdatabases]
-           WHERE  [name] = N'$(DatabaseName)')
-    BEGIN
-        ALTER DATABASE [$(DatabaseName)]
-            SET PAGE_VERIFY NONE,
-                DISABLE_BROKER 
-            WITH ROLLBACK IMMEDIATE;
-    END
-
-
-GO
-ALTER DATABASE [$(DatabaseName)]
-    SET TARGET_RECOVERY_TIME = 0 SECONDS 
-    WITH ROLLBACK IMMEDIATE;
-
-
-GO
-IF EXISTS (SELECT 1
-           FROM   [master].[dbo].[sysdatabases]
-           WHERE  [name] = N'$(DatabaseName)')
-    BEGIN
-        ALTER DATABASE [$(DatabaseName)]
-            SET QUERY_STORE (CLEANUP_POLICY = (STALE_QUERY_THRESHOLD_DAYS = 367)) 
-            WITH ROLLBACK IMMEDIATE;
-    END
-
-
-GO
-PRINT N'正在创建 [dbo].[Attendance]...';
-
-
-GO
-CREATE TABLE [dbo].[Attendance] (
-    [Id]            INT NOT NULL,
-    [Membership_ID] INT NOT NULL,
-    [Event_ID]      INT NOT NULL,
-    PRIMARY KEY CLUSTERED ([Id] ASC)
-);
-
-
-GO
-PRINT N'正在创建 [dbo].[Bodyinfo]...';
-
-
-GO
-CREATE TABLE [dbo].[Bodyinfo] (
-    [record_time]   DATETIME     NOT NULL,
-    [Membership_ID] INT          NOT NULL,
-    [height]        VARCHAR (15) NOT NULL,
-    [weight]        VARCHAR (15) NOT NULL,
-    [bmi]           FLOAT (53)   NOT NULL,
-    [bmr]           FLOAT (53)   NOT NULL,
-    [Fat_Percent]   VARCHAR (15) NOT NULL,
-    [Fat_Mass]      VARCHAR (15) NOT NULL,
-    PRIMARY KEY CLUSTERED ([record_time] ASC, [Membership_ID] ASC)
-);
-
-
-GO
-PRINT N'正在创建 [dbo].[Coaches]...';
-
-
-GO
-CREATE TABLE [dbo].[Coaches] (
-    [Coach_ID]       INT          NOT NULL,
-    [Coach_nick]     VARCHAR (20) NOT NULL,
-    [Coach_Password] VARCHAR (20) NOT NULL,
-    [First_Name]     VARCHAR (20) NOT NULL,
-    [Last_Name]      VARCHAR (20) NOT NULL,
-    [Hire_Start]     DATETIME     NOT NULL,
-    [Hire_end]       DATETIME     NOT NULL,
-    [Coach_Gender]   VARCHAR (10) NOT NULL,
-    [Coach_Email]    VARCHAR (30) NOT NULL,
-    PRIMARY KEY CLUSTERED ([Coach_ID] ASC),
-    UNIQUE NONCLUSTERED ([Coach_Email] ASC)
-);
-
-
-GO
-PRINT N'正在创建 [dbo].[Events]...';
-
-
-GO
-CREATE TABLE [dbo].[Events] (
-    [Class_ID]    INT          NOT NULL,
-    [Events_type] VARCHAR (20) NOT NULL,
-    [Coach_ID]    INT          NOT NULL,
-    [Class_Start] DATETIME     NOT NULL,
-    [Class_End]   DATETIME     NOT NULL,
-    [Class_Name]  VARCHAR (20) NOT NULL,
-    PRIMARY KEY CLUSTERED ([Class_ID] ASC)
-);
-
-
-GO
-PRINT N'正在创建 [dbo].[Members]...';
-
-
-GO
-CREATE TABLE [dbo].[Members] (
-    [Member_ID]       INT          NOT NULL,
-    [Member_nick]     VARCHAR (20) NOT NULL,
-    [Member_Password] VARCHAR (20) NOT NULL,
-    [First_Name]      VARCHAR (20) NOT NULL,
-    [Last_Name]       VARCHAR (20) NOT NULL,
-    [Member_Plan]     INT          NOT NULL,
-    [Member_Start]    DATETIME     NOT NULL,
-    [Member_end]      DATETIME     NOT NULL,
-    [Member_Gender]   VARCHAR (10) NOT NULL,
-    [Member_Email]    VARCHAR (30) NOT NULL,
-    PRIMARY KEY CLUSTERED ([Member_ID] ASC),
-    UNIQUE NONCLUSTERED ([Member_Email] ASC)
-);
-
-
-GO
-PRINT N'正在创建 [dbo].[Plans]...';
-
-
-GO
-CREATE TABLE [dbo].[Plans] (
-    [Plan_Id]    INT        NOT NULL,
-    [plan_Year]  INT        NOT NULL,
-    [plan_Month] INT        NOT NULL,
-    [plan_Day]   INT        NOT NULL,
-    [Price]      FLOAT (53) NOT NULL,
-    PRIMARY KEY CLUSTERED ([Plan_Id] ASC)
-);
-
-
-GO
-PRINT N'正在创建 [dbo].[Attendance] 上未命名的约束...';
-
-
-GO
-ALTER TABLE [dbo].[Attendance] WITH NOCHECK
-    ADD FOREIGN KEY ([Membership_ID]) REFERENCES [dbo].[Members] ([Member_ID]);
-
-
-GO
-PRINT N'正在创建 [dbo].[Attendance] 上未命名的约束...';
-
-
-GO
-ALTER TABLE [dbo].[Attendance] WITH NOCHECK
-    ADD FOREIGN KEY ([Event_ID]) REFERENCES [dbo].[Events] ([Class_ID]);
-
-
-GO
-PRINT N'正在创建 [dbo].[Bodyinfo] 上未命名的约束...';
-
-
-GO
-ALTER TABLE [dbo].[Bodyinfo] WITH NOCHECK
-    ADD FOREIGN KEY ([Membership_ID]) REFERENCES [dbo].[Members] ([Member_ID]);
-
-
-GO
-PRINT N'正在创建 [dbo].[Events] 上未命名的约束...';
-
-
-GO
-ALTER TABLE [dbo].[Events] WITH NOCHECK
-    ADD FOREIGN KEY ([Coach_ID]) REFERENCES [dbo].[Coaches] ([Coach_ID]);
+ALTER TABLE [dbo].[Members] DROP CONSTRAINT [CK__Members__Member___60A75C0F];
 
 
 GO
@@ -253,7 +80,7 @@ DECLARE tableconstraintnames CURSOR LOCAL FORWARD_ONLY
                [name],
                0
         FROM   [sys].[objects]
-        WHERE  [parent_object_id] IN (OBJECT_ID(N'dbo.Attendance'), OBJECT_ID(N'dbo.Bodyinfo'), OBJECT_ID(N'dbo.Events'), OBJECT_ID(N'dbo.Members'))
+        WHERE  [parent_object_id] IN (OBJECT_ID(N'dbo.Members'))
                AND [type] IN (N'F', N'C')
                    AND [object_id] IN (SELECT [object_id]
                                        FROM   [sys].[check_constraints]

@@ -1,6 +1,8 @@
 ﻿using _350Project.Models;
 using System.Web.Mvc;
 using static _350Project.Processor.MemberProcessor;
+using _350Project.DataAccess;
+using System.Collections.Generic;
 
 namespace _350Project.Controllers
 {
@@ -48,6 +50,22 @@ namespace _350Project.Controllers
             }
 
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult IsEmailExists(string MemberEmail)
+        {
+            string sql = "Select Member_Email From dbo.Members";
+
+            List < string > emails = SqlAccess.LoadData<string>(sql);
+
+            foreach (string i in emails) {
+                if (i == MemberEmail) {
+                    return Json(false);
+                }
+            }
+
+            return Json(true);
         }
     }
 }

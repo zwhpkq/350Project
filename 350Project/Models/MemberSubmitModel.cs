@@ -2,13 +2,13 @@
 {
     public class MemberSubmitModel
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Password { get; set; }
-        public int Plan { get; set; }
-        public string Gender { get; set; }
-        public string Email { get; set; }
-        public string UserName { get; set; }
-        public string EndTime { get; set; }
+        public string First_Name { get; set; }
+        public string Last_Name { get; set; }
+        public string Member_Password { get; set; }
+        public int Member_Plan { get; set; }
+        public string Member_Gender { get; set; }
+        public string Member_Email { get; set; }
+        public string Member_nick { get; set; }
+        public string Member_End { get; set; }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
+using CompareAttribute = System.ComponentModel.DataAnnotations.CompareAttribute;
 
 namespace _350Project.Models
 {
@@ -28,6 +30,7 @@ namespace _350Project.Models
 
         [Display(Name = "Email Address")]
         [DataType(DataType.EmailAddress)]
+        [Remote("IsEmailExists", "Home", ErrorMessage = "Email already in use")]
         [Required(ErrorMessage = "Please give us your email address")]
         public String MemberEmail { get; set; }
 

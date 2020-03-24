@@ -1,9 +1,6 @@
 D:\350\git\350Project\350Database\bin\Debug\350Database.dacpac
 D:\350\git\350Project\350Database\bin\Debug\_350Database.dll
 D:\350\git\350Project\350Database\bin\Debug\_350Database.pdb
-D:\350\git\350Project\350Database\obj\Debug\Model.xml
-D:\350\git\350Project\350Database\obj\Debug\refactor.xml
-D:\350\git\350Project\350Database\obj\Debug\postdeploy.sql
-D:\350\git\350Project\350Database\obj\Debug\predeploy.sql
 D:\350\git\350Project\350Database\obj\Debug\_350Database.dll
 D:\350\git\350Project\350Database\obj\Debug\_350Database.pdb
+D:\350\git\350Project\350Database\obj\Debug\350Database.sqlprojAssemblyReference.cache
