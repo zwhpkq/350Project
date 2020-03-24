@@ -83,3 +83,7 @@ D:\350\git\350Project\350Project\obj\Debug\350Project.csprojAssemblyReference.ca
 D:\350\git\350Project\350Project\obj\Debug\350Project.csproj.CopyComplete
 D:\350\git\350Project\350Project\obj\Debug\350Project.dll
 D:\350\git\350Project\350Project\obj\Debug\350Project.pdb
+D:\350\git\350Project\350Project\bin\Dapper.dll
+D:\350\git\350Project\350Project\bin\Dapper.xml
+D:\350\git\350Project\350Project\bin\_350Database.dll
+D:\350\git\350Project\350Project\bin\_350Database.pdb

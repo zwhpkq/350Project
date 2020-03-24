@@ -1,9 +1,6 @@
 ﻿using _350Project.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using static _350Project.Processor.MemberProcessor;
 
 namespace _350Project.Controllers
 {
@@ -39,8 +36,15 @@ namespace _350Project.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult SignUp(MemberModel model)
         {
-            if (ModelState.IsValid) { 
-
+            if (ModelState.IsValid)
+            {
+                int recordCreate = CreateMember(model.UserName,
+                    model.Password,
+                    model.FirstName,
+                    model.LastName,
+                    model.MemberPlan,
+                    model.Gender,
+                    model.MemberEmail);
             }
 
             return View();

@@ -130,6 +130,8 @@
     </Compile>
     <Compile Include="Models\MemberModel.cs" />
     <Compile Include="Models\MemberSubmitModel.cs" />
+    <Compile Include="Models\PlanModel.cs" />
+    <Compile Include="Processor\MemberProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -189,6 +191,12 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\350Database\350Database.sqlproj">
+      <Project>{57e043e9-21f4-4c7d-8f70-59d3efafa61e}</Project>
+      <Name>350Database</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
