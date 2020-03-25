@@ -47,6 +47,7 @@ namespace _350Project.Controllers
                     model.MemberPlan,
                     model.Gender,
                     model.MemberEmail);
+                return RedirectToAction("Index","Dashboard");
             }
 
             return View();

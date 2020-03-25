@@ -37,6 +37,7 @@ namespace _350Project.Models
         [Display(Name = "Password")]
         [StringLength(20, MinimumLength = 6, ErrorMessage = "Your password need to have 6 to 20 characters")]
         [Required(ErrorMessage = "You must have a password")]
+        [RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}", ErrorMessage = "Your password must contain at least one letter and one number")]
         [DataType(DataType.Password)]
         public String Password { get; set; }
 
