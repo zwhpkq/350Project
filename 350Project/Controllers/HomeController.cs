@@ -47,7 +47,30 @@ namespace _350Project.Controllers
                     model.MemberPlan,
                     model.Gender,
                     model.MemberEmail);
-                return RedirectToAction("Index","Dashboard");
+
+
+                string sql = "Select Member_End From dbo.Members Where Member_Email = '" + model.MemberEmail + "' and Member_Password = '" + model.Password + "'";
+
+                string sql_id = "Select Member_ID From dbo.Members Where Member_Email = '" + model.MemberEmail + "' and Member_Password = '" + model.Password + "'";
+
+                List<string> membertill = SqlAccess.LoadData<string>(sql);
+
+                List<int> userID = SqlAccess.LoadData<int>(sql_id);
+
+                if (userID.Count == 0)
+                {
+                    return View();
+                }
+                else
+                {
+                    Session["ID"] = userID[0];
+                    Session["Username"] = model.UserName;
+                    Session["Firstname"] = model.FirstName;
+                    Session["Lastname"] = model.LastName;
+                    Session["Email"] = model.MemberEmail;
+                    Session["MembershipTill"] = membertill[0];
+                    return RedirectToAction("Index", "Dashboard");
+                }
             }
 
             return View();

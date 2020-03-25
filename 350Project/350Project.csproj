@@ -179,10 +179,10 @@
     <Content Include="Views\Home\SignUp.cshtml" />
     <Content Include="Views\Account\Area.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Dashboard\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
