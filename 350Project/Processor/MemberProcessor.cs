@@ -38,5 +38,55 @@ namespace _350Project.Processor
 
             return SqlAccess.SaveData(sql, data);
         }
+
+        public static int CreateARecord(float Height, float Weight, int age, int neck, int waist, int hip, string gender, bool bmimethod, int membershipid) {
+            DateTime time = DateTime.Now;
+            float BMI = Weight / ((Height / 100)* (Height / 100));
+            float BMR = 0f;
+            float BFP = 0f;
+            if (gender == "Male") {
+                BMR = 10f * Weight + 6.25f * Height - 5f * age + 5f;
+                if (bmimethod)
+                {
+                    BFP = 1.2f * BMI + 0.23f * age - 16.2f;
+                }
+                else {
+                    BFP = 495f / (float)(1.0324f - 0.19077f * Math.Log10(waist - neck) + 0.15456f * Math.Log10(Height)) - 450f;
+                }
+            }
+            else {
+                BMR = 10f * Weight + 6.25f * Height - 5f * age - 161f;
+                if (bmimethod)
+                {
+                    BFP = 1.2f * BMI + 0.23f * age - 5.4f;
+                }
+                else
+                {
+                    BFP = 495f / (float)(1.29579f - 0.35004 * Math.Log10(waist + hip - neck) + 0.221f * Math.Log10(Height)) - 450f;
+                }
+            }
+
+            BMI = (float)Math.Round(BMI,2);
+            BMR = (float)Math.Round(BMR, 2);
+            BFP = (float)Math.Round(BFP, 2);
+
+            RecordModel recordModel = new RecordModel
+            {
+                record_time = time.ToString("yyyy-MM-dd HH:mm:ss.fff"),
+                height = (float)Math.Round(Height, 0),
+                weight = (float)Math.Round(Weight, 0),
+                bmi = BMI,
+                bmr = BMR,
+                Fat_Percent = BFP,
+                Fat_Mass = (float)Math.Round(BFP * Weight, 2)
+            };
+
+            string sql = @"insert into dbo.Bodyinfo (record_time,Membership_ID,height ,weight,bmi,bmr,Fat_Percent,Fat_Mass) values ( @record_time,'"+ membershipid+"'," +
+                " @height,@weight, @bmi, @bmr, @Fat_Percent, @Fat_Mass)";
+
+            return SqlAccess.SaveData(sql, recordModel);
+
+
+        }
     }
 }

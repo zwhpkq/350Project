@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using static _350Project.Processor.MemberProcessor;
 using _350Project.DataAccess;
 using System.Collections.Generic;
+using _350Project.Common;
 
 namespace _350Project.Controllers
 {
@@ -41,7 +42,7 @@ namespace _350Project.Controllers
             if (ModelState.IsValid)
             {
                 int recordCreate = CreateMember(model.UserName,
-                    model.Password,
+                    Password.Encode(model.Password),
                     model.FirstName,
                     model.LastName,
                     model.MemberPlan,
@@ -49,9 +50,9 @@ namespace _350Project.Controllers
                     model.MemberEmail);
 
 
-                string sql = "Select Member_End From dbo.Members Where Member_Email = '" + model.MemberEmail + "' and Member_Password = '" + model.Password + "'";
+                string sql = "Select Member_End From dbo.Members Where Member_Email = '" + model.MemberEmail + "' and Member_Password = '" + Password.Encode(model.Password) + "'";
 
-                string sql_id = "Select Member_ID From dbo.Members Where Member_Email = '" + model.MemberEmail + "' and Member_Password = '" + model.Password + "'";
+                string sql_id = "Select Member_ID From dbo.Members Where Member_Email = '" + model.MemberEmail + "' and Member_Password = '" + Password.Encode(model.Password) + "'";
 
                 List<string> membertill = SqlAccess.LoadData<string>(sql);
 
@@ -69,10 +70,11 @@ namespace _350Project.Controllers
                     Session["Lastname"] = model.LastName;
                     Session["Email"] = model.MemberEmail;
                     Session["MembershipTill"] = membertill[0];
+                    Session["Password"] = model.Password;
+                    Session["Gender"] = model.Gender;
                     return RedirectToAction("Index", "Dashboard");
                 }
             }
-
             return View();
         }
 

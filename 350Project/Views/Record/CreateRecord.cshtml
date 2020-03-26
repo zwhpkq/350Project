@@ -1,0 +1,116 @@
+﻿@model _350Project.Models.RecordCreateModel
+
+@{
+    ViewBag.Title = "CreateRecord";
+}
+
+@section Scripts {
+    <script>
+        function nwhchange() {
+            var val = parseInt(100);
+            if (document.getElementById('defaultcheckbox').checked) {
+                document.getElementById('nwh-n').value = val;
+                document.getElementById('nwh-n').readOnly = true;
+
+                document.getElementById('nwh-w').value = val;
+                document.getElementById('nwh-w').readOnly = true;
+
+
+                document.getElementById('nwh-h').value = val;
+                document.getElementById('nwh-h').readOnly = true;
+
+
+            }
+            else {
+                document.getElementById('nwh-n').value = 0;
+                document.getElementById('nwh-w').value = 0;
+                document.getElementById('nwh-h').value = 0;
+
+
+                document.getElementById('nwh-n').readOnly = false;
+
+                document.getElementById('nwh-w').readOnly = false;
+
+                document.getElementById('nwh-h').readOnly = false;
+
+            }
+        }
+    </script>
+}
+
+<h2 class="mt-5">CreateRecord</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.height, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.height, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.height, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.weight, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.weight, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.weight, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.age, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.age, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.age, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Defaultvalue, htmlAttributes: new { @class = "control-label col-md-3" })
+        @Html.CheckBoxFor(model => model.Defaultvalue, new { @onclick = "nwhchange();", @id = "defaultcheckbox" })
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Neck, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Neck, new { htmlAttributes = new { @class = "form-control", @id = "nwh-n" } })
+            @Html.ValidationMessageFor(model => model.Neck, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Waist, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Waist, new { htmlAttributes = new { @class = "form-control", @id = "nwh-w" } })
+            @Html.ValidationMessageFor(model => model.Waist, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Hip, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Hip, new { htmlAttributes = new { @class = "form-control", @id = "nwh-h" } })
+            @Html.ValidationMessageFor(model => model.Hip, "", new { @class = "text-danger", @id = "nwh" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
