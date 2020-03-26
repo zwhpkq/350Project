@@ -7,72 +7,79 @@
     string string2 = "[ ";
 }
 
-<button onclick="location.href='/Record/CreateRecord'" type="button" class="btn btn-primary">
-    Create a record
-</button>
+    <div class="row mt-5 justify-content-between">
 
-<table class="table mt-5">
-    <thead class="thead-light">
-        <tr>
-            <th scope="col">Record time</th>
-            <th scope="col">Height</th>
-            <th scope="col">Weight</th>
-            <th scope="col">BMI</th>
-            <th scope="col">BMR</th>
-            <th scope="col">Fat Percent</th>
-            <th scope="col">Fat Mass</th>
-        </tr>
-    </thead>
-    <tbody>
-        @if (@Model.Count() > 0)
-        {
-            foreach (RecordModel record in @Model)
-            {
+        <button onclick="location.href='/Dashboard/Index'" type="button" class="btn btn-primary">
+            < Back to dashboard
+        </button>
+
+        <button onclick="location.href='/Record/CreateRecord'" type="button" class="btn btn-primary">
+            + Create a record
+        </button>
+    </div>
+        <table class="table mt-5">
+            <thead class="thead-light">
                 <tr>
-                    <th scope="row">
-                        @record.record_time
-                    </th>
-                    <td>
-                        @record.height
-                    </td>
-                    <td>
-                        @record.weight
-                    </td>
-                    <td>
-                        @record.bmi
-                    </td>
-                    <td>
-                        @record.bmr
-                    </td>
-                    <td>
-                        @record.Fat_Percent
-                    </td>
-                    <td>
-                        @record.Fat_Mass
-                    </td>
+                    <th scope="col">Record time</th>
+                    <th scope="col">Height</th>
+                    <th scope="col">Weight</th>
+                    <th scope="col">BMI</th>
+                    <th scope="col">BMR</th>
+                    <th scope="col">Fat Percent</th>
+                    <th scope="col">Fat Mass</th>
                 </tr>
-            }
-        }
-        @if (@Model.Count() == 0)
-        {
-            <tr>
-                <td colspan="7" align="center">No record found, create one right now!</td>
-            </tr>
+            </thead>
+            <tbody>
+                @if (@Model.Count() > 0)
+                {
+                    foreach (RecordModel record in @Model)
+                    {
+                        <tr>
+                            <th scope="row">
+                                @record.record_time
+                            </th>
+                            <td>
+                                @record.height
+                            </td>
+                            <td>
+                                @record.weight
+                            </td>
+                            <td>
+                                @record.bmi
+                            </td>
+                            <td>
+                                @record.bmr
+                            </td>
+                            <td>
+                                @record.Fat_Percent
+                            </td>
+                            <td>
+                                @record.Fat_Mass
+                            </td>
+                        </tr>
+                    }
+                }
+                @if (@Model.Count() == 0)
+                {
+                    <tr>
+                        <td colspan="7" align="center">No record found, create one right now!</td>
+                    </tr>
 
-        }
-    </tbody>
-</table>
-<div id="img" class="mt-2">
-    <h5 id="image_string"></h5>
-</div>
+                }
+            </tbody>
+        </table>
+        <div id="images" class="mt-2 col-md-10" height="400px">
+            <h5 id="image_string"></h5>
+        </div>
 
-@section scripts{
+        @Scripts.Render("~/bundles/d3")
 
-    <script src=@Url.Content("~/Scripts/jquery-3.4.1.js") type="text/javascript"></script>
-    <script src=@Url.Content("~/Scripts/d3/d3.min.js") type="text/javascript" charset="utf-8"></script>
+        @section scripts{
+
+            <script src=@Url.Content("~/Scripts/jquery-3.4.1.js") type="text/javascript"></script>
 
 
-    <script type="text/javascript">
+            <script type="text/javascript">
         if (@Model.Count() > 1) {
             @foreach (RecordModel record in @Model) {
                 string string1 = "{ 'time' : '" + record.record_time.ToString() + "', 'bmi' :'" + record.bmi.ToString() + "', 'bmr' :'" +record.bmr.ToString() + "', 'bfp' :'" +(string) record.Fat_Percent.ToString() + "', 'bfm' :'" + record.Fat_Mass.ToString() + "'},";
@@ -84,15 +91,321 @@
             var text = jsonstring.replace(/&#39;/g,'"');
 
 
-            console.log(text);
+
             var obj = JSON.parse(text);
-            console.log(obj);
 
-            d3.json(obj).then(function (data) {
-                console.log(data);
+            var times = new Array();
+            var bmilist = new Array();
+            var bmrlist = new Array();
+            var fatperlist = new Array();
+            var fatmasslist = new Array();
+            var width = 1000;
+            var height = 2050;
+
+            for (var i = 0; i < obj.length; i++) {
+                times.push(obj[i].time);
+                bmilist.push(parseFloat(obj[i].bmi));
+                bmrlist.push(parseFloat(obj[i].bmr));
+                fatperlist.push(parseFloat(obj[i].bfp));
+                fatmasslist.push(parseFloat(obj[i].bfm));
+            }
+
+            generateVisualization();
+
+            function generateVisualization() {
+                d3.select('#images').append('svg').attr('width', width).attr('height', height);
+                generateaxises();
+                generatepoints();
+            }
+
+            function generatepoints() {
+                var point = new Array();
+                var pointtoaxis = new Array();
+                var maxdata = getmax(bmilist);
+                var perwidth = width / (bmilist.length + 1);
+                var pointer = perwidth;
+                for (var i = 0; i < bmilist.length; i++) {
+                    if (bmilist[i] < 0) {
+                        pointtoaxis.push(500);
+                    }
+                    else {
+                        pointtoaxis.push(500 - (bmilist[i] / maxdata) * 450);
+                    }
+
+                    d3.select('svg').append("circle")
+                        .attr("cy", pointtoaxis[i])
+                        .attr("cx", pointer)
+                        .attr("r", 5)
+                        .attr("fill", "orange");
+
+                    point.push([pointer, pointtoaxis[i]]);
+
+                    pointer += perwidth;
+                }
+
+                generatelines(point);
+
+                @if ((string)Session["Gender"] == "Male") {
+                    string2 = "Male";
+
+                }
+                @if ((string)Session["Gender"] == "Female"){
+
+                    string2 = "Female";
+                }
+
+                var gender = "@string2";
+
+                var string = '';
+                if (bmilist[bmilist.length - 1] < 18.5) {
+                    string = "Current underweight";
+                }
+                else if (bmilist[bmilist.length - 1] > 18.5 && bmilist[bmilist.length - 1] < 25) {
+                    string = "Current in normal range";
+                }
+                else {
+                    string = "Current overweight";
+                }
+
+                d3.select('svg').append("text")
+                    .text("Max = " + maxdata +"   "+string)
+                    .attr("x", 450)
+                    .attr("y", 35)
+                    .style("font-size", "14");
+
+                d3.select('svg').append("text")
+                    .text("BMI")
+                    .attr("x", 900)
+                    .attr("y", 515)
+                    .style("font-size", "14");
 
 
-            });
+                var pointtoaxis = new Array();
+                var point = new Array();
+                var maxdata = getmax(bmrlist);
+                var perwidth = width / (bmrlist.length + 1);
+                var pointer = perwidth;
+                for (var i = 0; i < bmrlist.length; i++) {
+                    if (bmrlist[i] < 0) {
+                        pointtoaxis.push(1000);
+                    }
+                    else {
+                        pointtoaxis.push(1000 - (bmrlist[i] / maxdata) * 450);
+                    }
+
+                    d3.select('svg').append("circle")
+                        .attr("cy", pointtoaxis[i])
+                        .attr("cx", pointer)
+                        .attr("r", 5)
+                        .attr("fill", "orange");
+
+                    point.push([pointer, pointtoaxis[i]]);
+
+                    pointer += perwidth;
+                }
+
+                generatelines(point);
+
+                d3.select('svg').append("text")
+                    .text("Max = "+maxdata)
+                    .attr("x", 500)
+                    .attr("y", 535)
+                    .style("font-size", "14");
+
+                d3.select('svg').append("text")
+                    .text("BMR")
+                    .attr("x", 900)
+                    .attr("y", 1015)
+                    .style("font-size", "14");
+
+
+                var point = new Array();
+                var pointtoaxis = new Array();
+                var maxdata = getmax(fatperlist);
+                var perwidth = width / (fatperlist.length + 1);
+                var pointer = perwidth;
+                for (var i = 0; i < fatperlist.length; i++) {
+                    if (fatperlist[i] < 0) {
+                        pointtoaxis.push(1500);
+                    }
+                    else {
+                        pointtoaxis.push(1500 - (fatperlist[i] / maxdata) * 450);
+                    }
+
+                    d3.select('svg').append("circle")
+                        .attr("cy", pointtoaxis[i])
+                        .attr("cx", pointer)
+                        .attr("r", 5)
+                        .attr("fill", "orange");
+
+                    point.push([pointer, pointtoaxis[i]]);
+
+
+                    pointer += perwidth;
+                }
+
+                generatelines(point);
+
+                var string = '';
+                if (gender == "Male") {
+                    if (fatperlist[fatperlist.length - 1] < 18) {
+                        string = "Current below average";
+                    }
+                    else if (fatperlist[fatperlist.length - 1] >= 18 && fatperlist[fatperlist.length - 1] < 25) {
+                        string = "Current in average range";
+                    }
+                    else {
+                        string = "Current above average";
+                    }
+                }
+                else {
+                    if (fatperlist[fatperlist.length - 1] < 25) {
+                        string = "Current below average";
+                    }
+                    else if (fatperlist[fatperlist.length - 1] >= 25 && fatperlist[fatperlist.length - 1] < 31) {
+                        string = "Current in average range";
+                    }
+                    else {
+                        string = "Current above average";
+                    }
+
+                }
+
+
+
+                d3.select('svg').append("text")
+                    .text("Max = " + maxdata +" "+string)
+                    .attr("x", 450)
+                    .attr("y", 1035)
+                    .style("font-size", "14");
+
+                d3.select('svg').append("text")
+                    .text("Body fat percentage")
+                    .attr("x", 900)
+                    .attr("y", 1515)
+                    .style("font-size", "14");
+
+
+                var point = new Array();
+                var pointtoaxis = new Array();
+                var maxdata = getmax(fatmasslist);
+                var perwidth = width / (fatmasslist.length + 1);
+                var pointer = perwidth;
+                for (var i = 0; i < fatmasslist.length; i++) {
+                    if (fatmasslist[i] < 0) {
+                        pointtoaxis.push(2000);
+                    }
+                    else {
+                        pointtoaxis.push(2000 - (fatmasslist[i] / maxdata) * 450);
+                    }
+
+                    d3.select('svg').append("circle")
+                        .attr("cy", pointtoaxis[i])
+                        .attr("cx", pointer)
+                        .attr("r", 5)
+                        .attr("fill", "orange");
+
+                    point.push([pointer, pointtoaxis[i]]);
+
+                    pointer += perwidth;
+                }
+
+                generatelines(point);
+
+                d3.select('svg').append("text")
+                    .text("Max = "+maxdata)
+                    .attr("x", 500)
+                    .attr("y", 1535)
+                    .style("font-size", "14");
+
+                d3.select('svg').append("text")
+                    .text("Body fat mass")
+                    .attr("x", 900)
+                    .attr("y", 2015)
+                    .style("font-size", "14");
+
+
+            }
+
+            function getmax (data){
+                var maxd = data[0];
+                for (var i = 1; i< data.length;i++){
+                    if (data[i] > maxd){
+                        maxd = data[i];
+                    }
+                }
+                return maxd;
+            }
+
+
+            function generateaxises() {
+                var points = new Array();
+
+                points.push([10, 510]);
+                points.push([10, 50]);
+                generatelines(points);
+
+                var points = new Array();
+                points.push([0, 500]);
+                points.push([1000, 500]);
+                generatelines(points);
+
+                var points = new Array();
+                points.push([0, 1000]);
+                points.push([1000, 1000]);
+
+                generatelines(points);
+
+                var points = new Array();
+
+                points.push([10, 550]);
+                points.push([10, 1010]);
+                generatelines(points);
+
+                var points = new Array();
+                points.push([0, 1500]);
+                points.push([1000, 1500]);
+
+                generatelines(points);
+
+                var points = new Array();
+
+                points.push([10, 1050]);
+                points.push([10, 1510]);
+                generatelines(points);
+
+
+                var points = new Array();
+
+                points.push([10, 1550]);
+                points.push([10, 2000]);
+                generatelines(points);
+
+                var points = new Array();
+                points.push([0, 2000]);
+                points.push([1000, 2000]);
+
+                generatelines(points);
+
+
+            }
+
+
+            function generatelines(points) {
+
+                var lineGenerator = d3.line()
+                    .curve(d3.curveCardinal);
+                // Step, Linear,
+
+                // Convert data points into path
+                var pathData = lineGenerator(points);
+
+                // Add a new path element and set the path data as attribute
+                d3.select('svg')
+                    .append("path")
+                    .style("stroke", "black")
+                    .attr('d', pathData)
+            }
         }
 
         else {
@@ -100,5 +413,5 @@
         }
 
 
-    </script>
-}
+            </script>
+        }
