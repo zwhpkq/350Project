@@ -54,8 +54,6 @@ namespace _350Project.Controllers
         public ActionResult Logout() {
             Session.Abandon();
             return RedirectToAction("Index", "Home");
-
-
         }
     }
 }

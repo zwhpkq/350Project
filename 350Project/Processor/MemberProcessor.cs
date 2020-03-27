@@ -85,7 +85,19 @@ namespace _350Project.Processor
                 " @height,@weight, @bmi, @bmr, @Fat_Percent, @Fat_Mass)";
 
             return SqlAccess.SaveData(sql, recordModel);
+        }
 
+        public static int UploadImage(ImageModel imageModel) {
+
+            string sql = @"select ImageId From dbo.Gallery";
+
+            List<int> imageid = SqlAccess.LoadData<int>(sql);
+
+            imageModel.ImageId = imageid.Count + 1;
+
+            string sql1 = @"insert into dbo.Gallery (ImageId,Title,ImagePath) values ( @ImageId, @Title, @ImagePath)";
+
+            return SqlAccess.SaveData(sql1, imageModel);
 
         }
     }

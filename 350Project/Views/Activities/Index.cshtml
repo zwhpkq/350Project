@@ -1,0 +1,227 @@
+﻿@model IEnumerable<_350Project.Models.EventModel>
+
+@using _350Project.Models;
+
+@{
+	ViewBag.Title = "Index";
+	string string2 = "[ ";
+}
+
+<div class="row mt-5 justify-content-between">
+
+	<button onclick="location.href='/Dashboard/Index'" type="button" class="btn btn-primary">
+		< Back to dashboard
+	</button>
+
+</div>
+
+<div class="container">
+
+	<div class="calendar">
+
+		<header>
+
+			<h2>April</h2>
+
+		</header>
+
+		<table class="table">
+
+			<thead>
+
+				<tr>
+
+					<td scope="col">Mo</td>
+					<td scope="col">Tu</td>
+					<td scope="col">We</td>
+					<td scope="col">Th</td>
+					<td scope="col">Fr</td>
+					<td scope="col">Sa</td>
+					<td scope="col">Su</td>
+
+				</tr>
+
+			</thead>
+
+			<tbody>
+
+				<tr>
+					<td class="prev-month">30</td>
+					<td class="prev-month">31</td>
+					<td id="1">1</td>
+					<td id="2">2</td>
+					<td id="3">3</td>
+					<td id="4">4</td>
+					<td id="5">5</td>
+
+				</tr>
+				<tr>
+					<td id="6">6</td>
+					<td id="7">7</td>
+					<td id="8">8</td>
+					<td id="9">9</td>
+					<td id="10">10</td>
+					<td id="11">11</td>
+					<td id="12">12</td>
+				</tr>
+				<tr>
+					<td id="13">13</td>
+					<td id="14">14</td>
+					<td id="15">15</td>
+					<td id="16">16</td>
+					<td id="17">17</td>
+					<td id="18">18</td>
+					<td id="19">19</td>
+				</tr>
+				<tr>
+					<td id="20">20</td>
+					<td id="21">21</td>
+					<td id="22">22</td>
+					<td id="23">23</td>
+					<td id="24">24</td>
+					<td id="25">25</td>
+					<td id="26">26</td>
+				</tr>
+
+				<tr>
+					<td id="27">27</td>
+					<td id="28">28</td>
+					<td id="29">29</td>
+					<td id="30">30</td>
+					<td class="next-month">1</td>
+					<td class="next-month">2</td>
+					<td class="next-month">3</td>
+				</tr>
+				<tr>
+					<td class="next-month">4</td>
+					<td class="next-month">5</td>
+					<td class="next-month">6</td>
+					<td class="next-month">7</td>
+					<td class="next-month">8</td>
+					<td class="next-month">9</td>
+					<td class="next-month">10</td>
+				</tr>
+
+			</tbody>
+
+		</table>
+
+	</div>
+	<div id="strarea">
+		<h5 id="image_string"></h5>
+	</div>
+
+</div>
+
+
+@section scripts{
+	<script>
+
+        if (@Model.Count() > 0) {
+
+		@foreach (EventModel i in @Model)
+		{
+			string string1 = "{ 'time' : '" + i.Dayinmonth.ToString() + "', 'start' :'" + i.Class_Start.ToString() + "', 'end' :'" + i.Class_End.ToString() + "', 'coach' :'" + i.Coach_Name + "', 'type' :'" + i.typeName + "'},";
+			string2 += string1;
+		}
+
+            var jsonstring = "@string2.Remove(string2.Length - 1) ]";
+            var text = jsonstring.replace(/&#39;/g, '"');
+
+            var strings = new Array();
+            var days = new Array();
+
+            var obj = JSON.parse(text);
+
+            for (var i = 0; i < obj.length; i++) {
+                var x = document.getElementById(obj[i].time);
+                x.classList.add("event");
+
+                var string1 = "Start at: " + obj[i].start + " End at: " + obj[i].end + " With Coach: " + obj[i].coach + " Type: " + obj[i].type;
+
+                strings.push(string1);
+                days.push(obj[i].time);
+
+                document.getElementById(obj[i].time).addEventListener(
+                    'click', function (event) {
+                        document.getElementById("image_string").innerHTML = strings[idindex(event.target.id)];
+                });
+            }
+
+            function idindex(eventtarget) {
+                for (var i = 0; i < days.length; i++) {
+                    if (eventtarget == days[i]) {
+                        return i;
+                    }
+                }
+                return 0;
+            }
+
+        }
+
+	</script>
+
+
+}
+
+@section styles{
+	<style>
+		.calendar {
+			text-align: center;
+		}
+
+			.calendar header {
+				position: relative;
+			}
+
+			.calendar h2 {
+				text-transform: uppercase;
+			}
+
+			.calendar thead {
+				font-weight: 600;
+				text-transform: uppercase;
+			}
+
+			.calendar tbody {
+				color: #7c8a95;
+			}
+
+				.calendar tbody td:hover {
+					border: 2px solid #00addf;
+				}
+
+			.calendar td {
+				border: 2px solid transparent;
+				border-radius: 50%;
+				display: inline-block;
+				height: 4em;
+				line-height: 4em;
+				text-align: center;
+				width: 4em;
+			}
+
+			.calendar .prev-month,
+			.calendar .next-month {
+				color: #cbd1d2;
+			}
+
+		.event {
+			cursor: pointer;
+			position: relative;
+		}
+
+			.event:after {
+				background: #00addf;
+				border-radius: 50%;
+				bottom: .5em;
+				display: block;
+				content: '';
+				height: .5em;
+				left: 50%;
+				margin: -.25em 0 0 -.25em;
+				position: absolute;
+				width: .5em;
+			}
+	</style>
+}

@@ -68,5 +68,8 @@
     <Build Include="dbo\Tables\Bodyinfo.sql" />
     <Build Include="dbo\Tables\Plans.sql" />
     <None Include="Scripts\ScriptsIgnoredOnImport.sql" />
+    <Build Include="dbo\Tables\FitnessType.sql" />
+    <Build Include="dbo\Tables\CoachToType.sql" />
+    <Build Include="dbo\Tables\Gallery.sql" />
   </ItemGroup>
 </Project>

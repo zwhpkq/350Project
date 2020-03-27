@@ -386,8 +386,6 @@
                 points.push([1000, 2000]);
 
                 generatelines(points);
-
-
             }
 
 
@@ -405,6 +403,7 @@
                     .append("path")
                     .style("stroke", "black")
                     .attr('d', pathData)
+                    .attr('fill', 'none');
             }
         }
 

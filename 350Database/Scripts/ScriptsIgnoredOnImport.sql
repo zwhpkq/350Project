@@ -1,17 +1,12 @@
-﻿Insert INTO Plans Values (1, 1,0,0,100);
+﻿Insert into Events values (1,1,1,'2020/4/1 10:00:00','2020/4/1 12:00:00', 'Event1');
 GO
 
-Insert INTO Plans Values (2, 0,6,0,60);
+Insert into Events values (2,2,2,'2020/4/12 12:00:00','2020/4/12 14:00:00', 'Event2');
 GO
 
-Insert INTO Plans Values (3, 0,3,0,35);
+Insert into Events values (3,7,3,'2020/4/15 12:00:00','2020/4/15 14:00:00', 'Event3');
 GO
 
-Insert INTO Plans Values (4, 0,1,0,15);
-GO
 
-Insert INTO Plans Values (5, 0,0,7,5);
-GO
-
-Insert INTO Plans Values (6, 0,0,7,0);
+Insert into Events values (4,4,2,'2020/4/22 14:00:00','2020/4/15 16:00:00', 'Event4');
 GO

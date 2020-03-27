@@ -125,6 +125,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Common\Password.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ActivitiesController.cs" />
+    <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\RecordController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -132,12 +134,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CoachModel.cs" />
+    <Compile Include="Models\EventModel.cs" />
+    <Compile Include="Models\FindCoachController.cs" />
+    <Compile Include="Models\ImageModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\MemberModel.cs" />
     <Compile Include="Models\MemberSubmitModel.cs" />
     <Compile Include="Models\PlanModel.cs" />
     <Compile Include="Models\RecordCreateModel.cs" />
     <Compile Include="Models\RecordModel.cs" />
+    <Compile Include="Models\TypeModel.cs" />
     <Compile Include="Processor\MemberProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -188,9 +195,13 @@
     <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\Record\Index.cshtml" />
     <Content Include="Views\Record\CreateRecord.cshtml" />
+    <Content Include="Views\Activities\Index.cshtml" />
+    <Content Include="Views\Gallery\AddImage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Image\" />
+    <Folder Include="Views\FindCoach\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
