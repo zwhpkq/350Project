@@ -127,6 +127,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ActivitiesController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
+    <Compile Include="Controllers\OtherEventController.cs" />
     <Compile Include="Controllers\RecordController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -135,8 +136,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CoachModel.cs" />
+    <Compile Include="Models\CoachToTypeModel.cs" />
     <Compile Include="Models\EventModel.cs" />
-    <Compile Include="Models\FindCoachController.cs" />
+    <Compile Include="Controllers\FindCoachController.cs" />
     <Compile Include="Models\ImageModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\MemberModel.cs" />
@@ -154,8 +156,26 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Image\activities.png" />
     <Content Include="Content\Image\background1.png" />
+    <Content Include="Content\Image\background2.jpg" />
+    <Content Include="Content\Image\background3.png" />
+    <Content Include="Content\Image\battlerope.png" />
+    <Content Include="Content\Image\biking.png" />
+    <Content Include="Content\Image\bodycombat.png" />
+    <Content Include="Content\Image\bodyjam.png" />
+    <Content Include="Content\Image\bodypump.png" />
+    <Content Include="Content\Image\city.png" />
+    <Content Include="Content\Image\coach.png" />
+    <Content Include="Content\Image\crossfit.png" />
+    <Content Include="Content\Image\gallary.png" />
+    <Content Include="Content\Image\hiit.png" />
     <Content Include="Content\Image\logo1.png" />
+    <Content Include="Content\Image\rate.png" />
+    <Content Include="Content\Image\record.png" />
+    <Content Include="Content\Image\setting.png" />
+    <Content Include="Content\Image\trx.png" />
+    <Content Include="Content\Image\yoga.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -197,11 +217,12 @@
     <Content Include="Views\Record\CreateRecord.cshtml" />
     <Content Include="Views\Activities\Index.cshtml" />
     <Content Include="Views\Gallery\AddImage.cshtml" />
+    <Content Include="Views\FindCoach\Index.cshtml" />
+    <Content Include="Views\OtherEvent\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Image\" />
-    <Folder Include="Views\FindCoach\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
