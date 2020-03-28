@@ -1,6 +1,6 @@
 ﻿using _350Project.Models;
 using System.Web.Mvc;
-using static _350Project.Processor.MemberProcessor;
+using static _350Project.Processor.HomeProcessor;
 using _350Project.DataAccess;
 using System.Collections.Generic;
 using _350Project.Common;

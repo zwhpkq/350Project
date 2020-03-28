@@ -1,5 +1,5 @@
 ﻿CREATE TABLE Members 
-(Member_ID INT Identity(1,1), 
+(Member_ID INT NOT NULL, 
 Member_nick VARCHAR(20) NOT NULL,
 Member_Password VARCHAR(20) NOT NULL,
 First_Name VARCHAR(20) NOT NULL,

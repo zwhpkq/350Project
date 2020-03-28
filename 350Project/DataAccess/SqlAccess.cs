@@ -31,5 +31,14 @@ namespace _350Project.DataAccess
                 return cnn.Execute(sql, data);
             }
         }
+
+
+        public static int DeleteData(string sql)
+        {
+            using (IDbConnection cnn = new SqlConnection(GetConnectionString()))
+            {
+                return cnn.Execute(sql);
+            }
+        }
     }
 }

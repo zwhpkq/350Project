@@ -213,11 +213,15 @@
 
             var string = "Found best match: Coach - " + coaches[index] + " is matching " + value + " of your interested areas."
 
+
+
             document.getElementById("image_string").innerHTML = string;
+
             var emai = document.createElement("a");
             emai.setAttribute("href", "mailto:" + coachemail[index]);
+            emai.setAttribute("id","coachemailaddress");
             emai.innerHTML = "Email this coach";
-            document.getElementById("images").appendChild(emai);
+            document.getElementById("image_string").appendChild(emai);
 		}
 	</script>
 

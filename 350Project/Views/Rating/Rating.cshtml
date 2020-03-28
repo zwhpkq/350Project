@@ -1,0 +1,168 @@
+﻿@model _350Project.Models.RatingModel
+
+@{
+    ViewBag.Title = "Rating";
+}
+
+<div class="row mt-5 justify-content-between">
+
+    <button onclick="location.href='/Dashboard/Index'" type="button" class="btn btn-primary">
+        < Back to dashboard
+    </button>
+
+
+</div>
+
+<h2>Rate this gym</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Mark)
+        <div class="row justify-content-center">
+            <div id="reviewStars-input" class="form-group">
+                <input id="star-0" type="radio" name="reviewStars" />
+                <label title="bad" for="star-0"></label>
+
+                <input id="star-1" type="radio" name="reviewStars" />
+                <label title="poor" for="star-1"></label>
+
+
+                <input id="star-2" type="radio" name="reviewStars" />
+                <label title="regular" for="star-2"></label>
+
+                <input id="star-3" type="radio" name="reviewStars" />
+                <label title="good" for="star-3"></label>
+
+                <input id="star-4" type="radio" name="reviewStars" />
+                <label title="gorgeous" for="star-4"></label>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Review, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-lg-12">
+                    @Html.TextAreaFor(model => model.Review, new { @class = "form-control", @rows = 6, @cols = 100 })
+                    @Html.ValidationMessageFor(model => model.Review, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+
+            <div class="form-group">
+                <div class=" col-md-10">
+                    <input type="submit" value="Submit" class="btn btn-primary" onclick="getrate()" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+@section styles{
+    <style>
+    #reviewStars-input input:checked ~ label, #reviewStars-input label, #reviewStars-input label:hover, #reviewStars-input label:hover ~ label {
+      background: url('@Url.Content("~/Content/Image/stars.png")') no-repeat;
+    }
+
+    #reviewStars-input {
+
+      /*fix floating problems*/
+      overflow: hidden;
+      *zoom: 1;
+      /*end of fix floating problems*/
+
+      position: relative;
+      float: left;
+    }
+
+    #reviewStars-input input {
+      filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+      opacity: 0;
+
+      width: 43px;
+      height: 40px;
+
+      position: absolute;
+      top: 0;
+      z-index: 0;
+    }
+
+    #reviewStars-input input:checked ~ label {
+      background-position: 0 -40px;
+      height: 40px;
+      width: 43px;
+    }
+
+    #reviewStars-input label {
+      background-position: 0 0;
+      height: 40px;
+      width: 43px;
+      float: right;
+      cursor: pointer;
+      margin-right: 10px;
+
+      position: relative;
+      z-index: 1;
+    }
+
+    #reviewStars-input label:hover, #reviewStars-input label:hover ~ label {
+      background-position: 0 -40px;
+      height: 40px;
+      width: 43px;
+    }
+
+    #reviewStars-input #star-0 {
+      left: 0px;
+    }
+    #reviewStars-input #star-1 {
+      left: 53px;
+    }
+    #reviewStars-input #star-2 {
+      left: 106px;
+    }
+    #reviewStars-input #star-3 {
+      left: 159px;
+    }
+    #reviewStars-input #star-4 {
+      left: 212px;
+    }
+    #reviewStars-input #star-5 {
+      left: 265px;
+    }
+
+
+    </style>
+
+}
+@section scripts{
+    <script>
+        function getrate() {
+            if (document.getElementById("star-0").checked) {
+                $("#Mark").val(1);
+            }
+            else if (document.getElementById("star-1").checked) {
+                $("#Mark").val(2);
+            }
+            else if (document.getElementById("star-2").checked) {
+                $("#Mark").val(3);
+            }
+            else if (document.getElementById("star-3").checked) {
+                $("#Mark").val(4);
+            }
+            else if (document.getElementById("star-4").checked) {
+                $("#Mark").val(5);
+            }
+            else {
+                $("#Mark").val(0);
+            }
+        }
+    </script>
+
+}

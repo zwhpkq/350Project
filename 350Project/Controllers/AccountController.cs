@@ -34,6 +34,7 @@ namespace _350Project.Controllers
 
             if (member.Count == 0)
             {
+                ViewBag.Errormessage = "Please check your email and password";
                 return View();
             }
 

@@ -71,5 +71,6 @@
     <Build Include="dbo\Tables\FitnessType.sql" />
     <Build Include="dbo\Tables\CoachToType.sql" />
     <Build Include="dbo\Tables\Gallery.sql" />
+    <Build Include="dbo\Tables\Rating.sql" />
   </ItemGroup>
 </Project>

@@ -127,10 +127,13 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ActivitiesController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OtherEventController.cs" />
+    <Compile Include="Controllers\RatingController.cs" />
     <Compile Include="Controllers\RecordController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SettingController.cs" />
     <Compile Include="DataAccess\SqlAccess.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -144,10 +147,12 @@
     <Compile Include="Models\MemberModel.cs" />
     <Compile Include="Models\MemberSubmitModel.cs" />
     <Compile Include="Models\PlanModel.cs" />
+    <Compile Include="Models\RatingModel.cs" />
     <Compile Include="Models\RecordCreateModel.cs" />
     <Compile Include="Models\RecordModel.cs" />
     <Compile Include="Models\TypeModel.cs" />
-    <Compile Include="Processor\MemberProcessor.cs" />
+    <Compile Include="Models\UsernamePassword.cs" />
+    <Compile Include="Processor\HomeProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -210,7 +215,6 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\SignUp.cshtml" />
-    <Content Include="Views\Account\Area.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\Record\Index.cshtml" />
@@ -219,6 +223,19 @@
     <Content Include="Views\Gallery\AddImage.cshtml" />
     <Content Include="Views\FindCoach\Index.cshtml" />
     <Content Include="Views\OtherEvent\Index.cshtml" />
+    <Content Include="Views\Rating\Rating.cshtml" />
+    <Content Include="Views\Setting\Index.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\CoachManage.cshtml" />
+    <Content Include="Views\Manage\EventManage.cshtml" />
+    <Content Include="Views\Manage\AddCoach.cshtml" />
+    <Content Include="Views\Manage\EditCoach.cshtml" />
+    <Content Include="Views\Manage\EditEvent.cshtml" />
+    <Content Include="Views\Manage\EditCoachArea.cshtml" />
+    <Content Include="Views\Manage\EditCArea.cshtml" />
+    <Content Include="Views\Manage\AddEvent.cshtml" />
+    <Content Include="Views\Manage\AddCTT.cshtml" />
+    <Content Include="Views\Manage\DelectCArea.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

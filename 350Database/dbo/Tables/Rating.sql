@@ -1,0 +1,8 @@
+﻿CREATE TABLE Rating
+(
+	Rate_Id INT NOT NULL PRIMARY KEY,
+	Mark INT NOT NULL,
+	Review VARCHAR(MAX),
+	Member_Id INT NOT NULL,
+	Member_Username VARCHAR(20) NOT NULL
+);

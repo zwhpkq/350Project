@@ -36,7 +36,7 @@ namespace _350Project.Controllers
         {
             if (ModelState.IsValid)
             {
-                MemberProcessor.CreateARecord(
+                HomeProcessor.CreateARecord(
                     record.height,
                     record.weight,
                     record.age,
@@ -47,7 +47,7 @@ namespace _350Project.Controllers
                     record.Defaultvalue,
                     (int)Session["ID"]
                     );
-
+                TempData["Message"] = "Update success";
                 return RedirectToAction("Index", "Record");
             }
             else {

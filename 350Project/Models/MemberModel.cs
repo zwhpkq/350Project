@@ -23,7 +23,7 @@ namespace _350Project.Models
         [Required(ErrorMessage = "Please select your gender")]
         public String Gender { get; set; }
 
-        [Range(1, 10, ErrorMessage = "Need to choose a valid plan")]
+        [Range(1, 6, ErrorMessage = "Need to choose a valid plan")]
         [Display(Name = "Choose Your Plan")]
         [Required(ErrorMessage = "Please select one of our plan")]
         public int MemberPlan { get; set; }

@@ -31,8 +31,9 @@ namespace _350Project.Controllers
 
             model.ImageFile.SaveAs(filename);
 
-            MemberProcessor.UploadImage(model);
+            HomeProcessor.UploadImage(model);
 
+            TempData["Message"] = "Update success";
 
             return RedirectToAction("Index", "Dashboard");
         }
