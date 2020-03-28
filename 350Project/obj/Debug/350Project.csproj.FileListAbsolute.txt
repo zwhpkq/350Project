@@ -176,3 +176,6 @@ C:\Users\zwhpk\Desktop\CMPT\350Project\git\350Project\350Project\obj\Debug\350Pr
 C:\Users\zwhpk\Desktop\CMPT\350Project\git\350Project\350Project\obj\Debug\350Project.csproj.CopyComplete
 C:\Users\zwhpk\Desktop\CMPT\350Project\git\350Project\350Project\obj\Debug\350Project.dll
 C:\Users\zwhpk\Desktop\CMPT\350Project\git\350Project\350Project\obj\Debug\350Project.pdb
+C:\Users\zwhpk\Desktop\CMPT\350Project\git\350Project\350Project\bin\EngineIoClientDotNet.dll
+C:\Users\zwhpk\Desktop\CMPT\350Project\git\350Project\350Project\bin\SocketIoClientDotNet.dll
+C:\Users\zwhpk\Desktop\CMPT\350Project\git\350Project\350Project\bin\WebSocket4Net.dll

@@ -48,6 +48,11 @@ namespace _350Project.Controllers
             return View();
         }
 
+        public ActionResult ChatRoom()
+        {
+            return View();
+        }
+
         public ActionResult SignUp()
         {
             ViewBag.Message = "Member sign up";

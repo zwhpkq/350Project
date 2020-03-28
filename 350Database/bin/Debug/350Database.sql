@@ -44,7 +44,7 @@ PRINT N'Dropping <unnamed>...';
 
 
 GO
-ALTER TABLE [dbo].[Members] DROP CONSTRAINT [CK__Members__Member___5812160E];
+ALTER TABLE [dbo].[Members] DROP CONSTRAINT [CK__Members__Member___5CD6CB2B];
 
 
 GO

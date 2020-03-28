@@ -48,7 +48,13 @@
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\Dapper.2.0.30\lib\net461\Dapper.dll</HintPath>
     </Reference>
+    <Reference Include="EngineIoClientDotNet, Version=0.9.22.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\EngineIoClientDotNet.0.9.22\lib\net45\EngineIoClientDotNet.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SocketIoClientDotNet, Version=0.9.13.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\SocketIoClientDotNet.0.9.13\lib\net45\SocketIoClientDotNet.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -112,6 +118,9 @@
     <Reference Include="Antlr3.Runtime">
       <Private>True</Private>
       <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="WebSocket4Net, Version=0.14.1.0, Culture=neutral, PublicKeyToken=eb4e154b696bf72a, processorArchitecture=MSIL">
+      <HintPath>packages\WebSocket4Net.0.14.1\lib\net45\WebSocket4Net.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -217,6 +226,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="libman.json" />
+    <None Include=".bin\node.cmd" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\d3.js" />
     <Content Include="Scripts\d3.min.js" />
@@ -234,6 +244,40 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\modernizr.custom.79639.js" />
+    <Content Include="Scripts\server.js" />
+    <Content Include="Scripts\socket.io-adapter\.idea\inspectionProfiles\profiles_settings.xml" />
+    <Content Include="Scripts\socket.io-adapter\.idea\misc.xml" />
+    <Content Include="Scripts\socket.io-adapter\.idea\modules.xml" />
+    <Content Include="Scripts\socket.io-adapter\.idea\vcs.xml" />
+    <Content Include="Scripts\socket.io-adapter\.idea\workspace.xml" />
+    <Content Include="Scripts\socket.io-adapter\index.js" />
+    <Content Include="Scripts\socket.io-client\dist\socket.io.dev.js" />
+    <Content Include="Scripts\socket.io-client\dist\socket.io.js" />
+    <Content Include="Scripts\socket.io-client\dist\socket.io.slim.dev.js" />
+    <Content Include="Scripts\socket.io-client\dist\socket.io.slim.js" />
+    <Content Include="Scripts\socket.io-client\lib\index.js" />
+    <Content Include="Scripts\socket.io-client\lib\manager.js" />
+    <Content Include="Scripts\socket.io-client\lib\on.js" />
+    <Content Include="Scripts\socket.io-client\lib\socket.js" />
+    <Content Include="Scripts\socket.io-client\lib\url.js" />
+    <Content Include="Scripts\socket.io-client\node_modules\ms\index.js" />
+    <Content Include="Scripts\socket.io-client\node_modules\socket.io-parser\binary.js" />
+    <Content Include="Scripts\socket.io-client\node_modules\socket.io-parser\index.js" />
+    <Content Include="Scripts\socket.io-client\node_modules\socket.io-parser\is-buffer.js" />
+    <Content Include="Scripts\socket.io-client\node_modules\socket.io-parser\node_modules\debug\karma.conf.js" />
+    <Content Include="Scripts\socket.io-client\node_modules\socket.io-parser\node_modules\debug\node.js" />
+    <Content Include="Scripts\socket.io-client\node_modules\socket.io-parser\node_modules\debug\src\browser.js" />
+    <Content Include="Scripts\socket.io-client\node_modules\socket.io-parser\node_modules\debug\src\debug.js" />
+    <Content Include="Scripts\socket.io-client\node_modules\socket.io-parser\node_modules\debug\src\index.js" />
+    <Content Include="Scripts\socket.io-client\node_modules\socket.io-parser\node_modules\debug\src\node.js" />
+    <Content Include="Scripts\socket.io-parser\binary.js" />
+    <Content Include="Scripts\socket.io-parser\index.js" />
+    <Content Include="Scripts\socket.io-parser\is-buffer.js" />
+    <Content Include="Scripts\socket.io\lib\client.js" />
+    <Content Include="Scripts\socket.io\lib\index.js" />
+    <Content Include="Scripts\socket.io\lib\namespace.js" />
+    <Content Include="Scripts\socket.io\lib\parent-namespace.js" />
+    <Content Include="Scripts\socket.io\lib\socket.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -274,6 +318,40 @@
     <Content Include="Views\Home\Activity.cshtml" />
     <Content Include="Views\Home\Review.cshtml" />
     <Content Include="Views\Home\Gallary.cshtml" />
+    <Content Include="Scripts\socket.io-adapter\.idea\%24CACHE_FILE%24" />
+    <Content Include="Scripts\socket.io-adapter\.idea\socket.io-adapter.iml" />
+    <Content Include="Scripts\socket.io-adapter\LICENSE" />
+    <Content Include="Scripts\socket.io-adapter\package.json" />
+    <Content Include="Scripts\socket.io-adapter\Readme.md" />
+    <Content Include="Scripts\socket.io-client\dist\socket.io.dev.js.map" />
+    <Content Include="Scripts\socket.io-client\dist\socket.io.js.map" />
+    <Content Include="Scripts\socket.io-client\dist\socket.io.slim.dev.js.map" />
+    <Content Include="Scripts\socket.io-client\dist\socket.io.slim.js.map" />
+    <Content Include="Scripts\socket.io-client\LICENSE" />
+    <Content Include="Scripts\socket.io-client\node_modules\ms\license.md" />
+    <Content Include="Scripts\socket.io-client\node_modules\ms\package.json" />
+    <Content Include="Scripts\socket.io-client\node_modules\ms\readme.md" />
+    <Content Include="Scripts\socket.io-client\node_modules\socket.io-parser\LICENSE" />
+    <Content Include="Scripts\socket.io-client\node_modules\socket.io-parser\node_modules\debug\.coveralls.yml" />
+    <Content Include="Scripts\socket.io-client\node_modules\socket.io-parser\node_modules\debug\.eslintrc" />
+    <Content Include="Scripts\socket.io-client\node_modules\socket.io-parser\node_modules\debug\.npmignore" />
+    <Content Include="Scripts\socket.io-client\node_modules\socket.io-parser\node_modules\debug\.travis.yml" />
+    <Content Include="Scripts\socket.io-client\node_modules\socket.io-parser\node_modules\debug\CHANGELOG.md" />
+    <Content Include="Scripts\socket.io-client\node_modules\socket.io-parser\node_modules\debug\LICENSE" />
+    <Content Include="Scripts\socket.io-client\node_modules\socket.io-parser\node_modules\debug\Makefile" />
+    <Content Include="Scripts\socket.io-client\node_modules\socket.io-parser\node_modules\debug\package.json" />
+    <Content Include="Scripts\socket.io-client\node_modules\socket.io-parser\node_modules\debug\README.md" />
+    <Content Include="Scripts\socket.io-client\node_modules\socket.io-parser\package.json" />
+    <Content Include="Scripts\socket.io-client\node_modules\socket.io-parser\Readme.md" />
+    <Content Include="Scripts\socket.io-client\package.json" />
+    <Content Include="Scripts\socket.io-client\README.md" />
+    <Content Include="Scripts\socket.io-parser\LICENSE" />
+    <Content Include="Scripts\socket.io-parser\package.json" />
+    <Content Include="Scripts\socket.io-parser\Readme.md" />
+    <Content Include="Scripts\socket.io\LICENSE" />
+    <Content Include="Scripts\socket.io\package.json" />
+    <Content Include="Scripts\socket.io\Readme.md" />
+    <Content Include="Views\Home\ChatRoom.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
