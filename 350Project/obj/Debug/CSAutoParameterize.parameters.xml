@@ -1,2 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters />
+<parameters>
+  <parameter name="350Database-Web.config Connection String" description="350Database 由应用程序在 web.config 中用来访问数据库的连接字符串。" defaultValue="Data Source=(localdb)\ProjectsV13;Initial Catalog=350Database;Integrated Security=True;Pooling=False;Connect Timeout=30" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\350\\git\\350Project\\350Project\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='350Database']/@connectionString" />
+  </parameter>
+</parameters>

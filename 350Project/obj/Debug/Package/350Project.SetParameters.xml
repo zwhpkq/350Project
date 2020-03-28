@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <setParameter name="IIS Web Application Name" value="Default Web Site/" />
+  <setParameter name="350Database-Web.config Connection String" value="Data Source=(localdb)\ProjectsV13;Initial Catalog=350Database;Integrated Security=True;Pooling=False;Connect Timeout=30" />
 </parameters>

@@ -1,0 +1,162 @@
+﻿
+@{
+    ViewBag.Title = "UserPage";
+}
+
+
+
+@section scripts{
+    <script type="text/javascript">
+        function mousein(e) {
+            e.target.classList.add("bg-secondary");
+        }
+
+        function mouseout(e) {
+            e.target.classList.remove("bg-secondary");
+        }
+
+
+        function mousein2(e) {
+            e.target.classList.add("bg-info");
+        }
+
+        function mouseout2(e) {
+            e.target.classList.remove("bg-info");
+        }
+
+        function mousein3(e) {
+            e.target.classList.add("bg-light");
+        }
+
+        function mouseout3(e) {
+            e.target.classList.remove("bg-light");
+        }
+
+    </script>
+}
+
+<div class="container-fluid mt-5">
+
+    <h4>
+        @TempData["Message"]
+    </h4>
+
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card mb-3" onmouseleave="mouseout(event);" onmouseenter="mousein(event);">
+                <a href="/Record/Index" class="nav-link">
+                    <h3 class="card-header">Fitness Record</h3>
+                    <div class="card-body">
+                        <h5 class="card-subtitle text-muted">Record of your body conditions</h5>
+                    </div>
+                    <img style="height: 200px; width: 100%; display: block;"
+                         src="~/Content/Image/record.png" alt="Card image">
+                    <div class="card-body">
+                    </div>
+                    </a>
+            </div>
+
+        </div>
+
+
+        <div class="col-sm-6">
+            <div class="card mb-3" onmouseleave="mouseout2(event);" onmouseenter="mousein2(event);">
+                <a href="/Activities/Index" class="nav-link">
+                    <h3 class="card-header">Activities Attendant</h3>
+                    <div class="card-body">
+                        <h6 class="card-subtitle text-muted">Sign up an activity to join and management your activities</h6>
+                    </div>
+                    <img style="height: 200px; width: 100%; display: block;"
+                         src="~/Content/Image/activities.png" alt="Card image">
+                    <div class="card-body">
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="card mb-3" onmouseleave="mouseout3(event);" onmouseenter="mousein3(event);">
+                <a href="/Gallery/AddImage" class="nav-link">
+                    <h3 class="card-header">Post To Gallary</h3>
+                    <div class="card-body">
+                        <h6 class="card-subtitle text-muted">Post your experience with us</h6>
+                    </div>
+                    <img style="height: 200px; width: 100%; display: block;"
+                         src="~/Content/Image/gallary.png" alt="Card image">
+                    <div class="card-body">
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="card mb-3" onmouseleave="mouseout(event);" onmouseenter="mousein(event);">
+                <a href="/FindCoach/Index" class="nav-link">
+
+                    <h3 class="card-header">Find a Coach</h3>
+                    <div class="card-body">
+                        <h6 class="card-subtitle text-muted">Find a coach based on your interested area</h6>
+                    </div>
+                    <img style="height: 200px; width: 100%; display: block;"
+                         src="~/Content/Image/coach.png" alt="Card image">
+                    <div class="card-body">
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="col-sm-6">
+            <div class="card mb-3" onmouseleave="mouseout2(event);" onmouseenter="mousein2(event);">
+                <a href="/Rating/Rating" class="nav-link">
+
+                    <h3 class="card-header">Rate This Gym</h3>
+                    <div class="card-body">
+                        <h6 class="card-subtitle text-muted">Share your experience with us</h6>
+                    </div>
+                    <img style="height: 200px; width: 100%; display: block;"
+                         src="~/Content/Image/rate.png" alt="Card image">
+                    <div class="card-body">
+                    </div>
+                </a>
+
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="card mb-3" onmouseleave="mouseout3(event);" onmouseenter="mousein3(event);">
+                <a href="/OtherEvent/Index" class="nav-link">
+                    <h3 class="card-header">Other Events</h3>
+                    <div class="card-body">
+                        <h6 class="card-subtitle text-muted">Discover activities in the city</h6>
+                    </div>
+                    <img style="height: 200px; width: 100%; display: block;"
+                         src="~/Content/Image/city.png" alt="Card image">
+                    <div class="card-body">
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+
+        <div class="col-sm-6">
+            <div class="card mb-3" onmouseleave="mouseout(event);" onmouseenter="mousein(event);">
+                <a href="/Setting/Index" class="nav-link">
+
+                    <h3 class="card-header">Setting</h3>
+                    <div class="card-body">
+                        <h6 class="card-subtitle text-muted">Your account settings</h6>
+                    </div>
+                    <img style="height: 200px; width: 100%; display: block;"
+                         src="~/Content/Image/setting.png" alt="Card image">
+                    <div class="card-body">
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+</div>

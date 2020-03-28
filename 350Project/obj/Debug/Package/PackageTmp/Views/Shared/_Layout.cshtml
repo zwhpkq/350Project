@@ -22,7 +22,6 @@
 
                     <!-- !!!!!!To do, redirect this home controllor -->
 
-                    <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
                     <li class="nav-item"><a href="/Home/About" class="nav-link">About Us</a></li>
                     <li class="nav-item"><a href="/Home/About" class="nav-link">Coaches</a></li>
                     <li class="nav-item"><a href="/Home/Contact" class="nav-link">Activities</a></li>
@@ -31,10 +30,29 @@
                     <li class="nav-item"><a href="/Home/Contact" class="nav-link">Contect Us</a></li>
                 </ul>
 
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="nav-item"><a href="/Home/SignUp" id="loginLink" class="nav-link">Register</a></li>
-                    <li class="nav-item"><a href="/Account/Login" id="loginLink" class="nav-link">Log in</a></li>
-                </ul>
+                @if ((string)Session["Email"] == "admin@admin")
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="nav-item"><a href="/Manage/Index" class="nav-link">Management</a></li>
+                    </ul>
+
+                }
+
+                @if (Session["Username"] != null)
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="nav-item"><a href="/Dashboard/Index" class="nav-link">Hello @Session["Username"]</a></li>
+                        <li class="nav-item"><a href="/Account/Logout" class="nav-link">Log out</a></li>
+                    </ul>
+
+                }
+                @if (Session["Username"] == null)
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="nav-item"><a href="/Home/SignUp" id="loginLink" class="nav-link">Register</a></li>
+                        <li class="nav-item"><a href="/Account/Login" id="loginLink" class="nav-link">Log in</a></li>
+                    </ul>
+                }
             </div>
         </div>
     </div>

@@ -1,0 +1,116 @@
+﻿@model _350Project.Models.UsernamePassword
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="row mt-5 justify-content-between">
+
+        <button onclick="location.href='/Dashboard/Index'" type="button" class="btn btn-primary">
+            < Back to dashboard
+        </button>
+
+    </div>
+
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link" data-toggle="tab" href="#" role="tab" onclick="opentab(event, 'username')">Change user name</a>
+            <a class="nav-item nav-link" data-toggle="tab" href="#" role="tab" onclick="opentab(event, 'password')">Change password</a>
+        </div>
+    </nav>
+
+
+    <div id="username" class="tab-content">
+        <div class="form-group">
+            @Html.LabelFor(model => model.Member_nick, htmlAttributes: new { @class = "control-label col-md-8" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Member_nick, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Member_nick, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Member_Password)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Update" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+
+    <div id="password" class="tab-content">
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.confrim_password, htmlAttributes: new { @class = "control-label col-md-8" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.confrim_password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.confrim_password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Member_Password, htmlAttributes: new { @class = "control-label col-md-8" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Member_Password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Member_Password, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Member_nick)
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Update" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+
+}
+
+    @section scripts{
+        <script>
+            function opentab(evt, cityName) {
+                var i, tabcontent, tablinks;
+
+                // Get all elements with class="tabcontent" and hide them
+                tabcontent = document.getElementsByClassName("tab-content");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+
+                // Get all elements with class="tablinks" and remove the class "active"
+                tablinks = document.getElementsByClassName("nav-link");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" active", "");
+                }
+
+                // Show the current tab, and add an "active" class to the button that opened the tab
+                document.getElementById(cityName).style.display = "block";
+                evt.currentTarget.className += " active";
+            }
+
+
+        </script>
+    }
+
+
+    @section styles{
+        <style>
+            .tab-content {
+                display: none;
+                padding: 6px 12px;
+                border: 1px solid #ccc;
+                border-top: none;
+            }
+        </style>
+    }
