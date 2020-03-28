@@ -4,3 +4,9 @@ D:\350\git\350Project\350Database\bin\Debug\_350Database.pdb
 D:\350\git\350Project\350Database\obj\Debug\_350Database.dll
 D:\350\git\350Project\350Database\obj\Debug\_350Database.pdb
 D:\350\git\350Project\350Database\obj\Debug\350Database.sqlprojAssemblyReference.cache
+C:\Users\zwhpk\Desktop\CMPT\350Project\git\350Project\350Database\bin\Debug\350Database.dacpac
+C:\Users\zwhpk\Desktop\CMPT\350Project\git\350Project\350Database\bin\Debug\_350Database.dll
+C:\Users\zwhpk\Desktop\CMPT\350Project\git\350Project\350Database\bin\Debug\_350Database.pdb
+C:\Users\zwhpk\Desktop\CMPT\350Project\git\350Project\350Database\obj\Debug\350Database.sqlprojAssemblyReference.cache
+C:\Users\zwhpk\Desktop\CMPT\350Project\git\350Project\350Database\obj\Debug\_350Database.dll
+C:\Users\zwhpk\Desktop\CMPT\350Project\git\350Project\350Database\obj\Debug\_350Database.pdb

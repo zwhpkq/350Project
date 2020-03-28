@@ -10,7 +10,42 @@
 
 </head>
 <body>
-    <div class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <nav class="navbar navbar-expand-lg fixed-top bg-dark">
+        <img src="~/Content/Image/logo.png" width="5%" height="auto" alt="logo"><a class="navbar-brand" href="/Home/Index"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto" style="font-size: larger; font-family: 'Eusthalia Sans Slant';font-size:20px; ">
+                <li class="nav-item active">
+                    <a style="color: coral" class="nav-link" href="/Home/Index">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a style="color: coral" class="nav-link" href="/Home/About">About</a>
+                </li>
+                <li class="nav-item">
+                    <a style="color: coral" class="nav-link" href="/Home/Activity">Activity</a>
+                </li>
+                <li class="nav-item">
+                    <a style="color: coral" class="nav-link" href="/Home/Coach">Coach</a>
+                </li>
+                <li class="nav-item">
+                    <a style="color: coral" class="nav-link" href="#">Chatroom</a>
+                </li>
+                <li class="nav-item">
+                    <a style="color: coral" class="nav-link" href="/Home/Review">Review</a>
+                </li>
+                <li class="nav-item">
+                    <a style="color: coral" class="nav-link" href="/Home/Gallary">Gallary</a>
+                </li>
+                <li class="nav-item">
+                    <a style="color: coral" class="nav-link" href="/Home/Contact">Contact</a>
+                </li>
+            </ul>
+            <button type="submit" class="btn btn-light btn-outline-light html-editor-align-right"><a style="text-decoration:none; color: coral; font-size: 25px" href="login.html">Sign in</a></button>
+        </div>
+    </nav>
+    <!--<div class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
         <div class="container">
             <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -20,7 +55,6 @@
             <div class="navbar-collapse collapse" id="navbarSupportedContent">
                 <ul class="nav navbar-nav mr-auto">
 
-                    <!-- !!!!!!To do, redirect this home controllor -->
 
                     <li class="nav-item"><a href="/Home/About" class="nav-link">About Us</a></li>
                     <li class="nav-item"><a href="/Home/About" class="nav-link">Coaches</a></li>
@@ -55,12 +89,28 @@
                 }
             </div>
         </div>
-    </div>
+    </div> 
+    -->
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - LightWeight Workout</p>
+            <div class="footer bg-dark">
+                <div class="footer-contain" style="width: 95%; margin: auto; padding: 10px">
+                    <div class="footer-left">
+                        <p>&copy; @DateTime.Now.Year - LightWeight Workout</p>
+                        <p>light-weight</p>
+                        <p>workout</p>
+                    </div>
+                    <div class="logo" style="margin-left: 50%;margin-top: -60px; margin-bottom: 20px;">
+                        <img src="~/Content/Image/logo.png" style="width: 5%" alt="logo"><a class="navbar-brand" href="text.html"></a>
+                    </div>
+                    <div class="footer-right float-right" style="margin-top: -80px">
+                        <p>Saskatoon</p>
+                        <p>SK Canada</p>
+                    </div>
+                </div>
+            </div>
         </footer>
     </div>
 
@@ -68,7 +118,7 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
     @RenderSection("Styles", required: false)
-
+    @RenderSection("head", required: false)
 
 </body>
 </html>

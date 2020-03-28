@@ -24,6 +24,17 @@ namespace _350Project
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
 
+            bundles.Add(new StyleBundle("~/Content/css1").Include(
+                        "~/Content/custom2.css",
+                        "~/Content/demo.css",
+                        "~/Content/pfold.css"));
+
+            bundles.Add(new ScriptBundle("~/Content/gallary").Include(
+                        "~/Scripts/jquery.min.js",
+                        "~/Scripts/jquery.pflod.js",
+                        "~/Scripts/fold.js",
+                        "~/Scripts/modernizr.custom.79639.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/d3").Include(
                 "~/Scripts/d3.*"));
         }

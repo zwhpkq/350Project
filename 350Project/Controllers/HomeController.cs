@@ -14,6 +14,16 @@ namespace _350Project.Controllers
             return View();
         }
 
+        public ActionResult Activity()
+        {
+            return View();
+        }
+
+        public ActionResult Coach()
+        {
+            return View();
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -25,6 +35,16 @@ namespace _350Project.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+
+        public ActionResult Review()
+        {
+            return View();
+        }
+
+        public ActionResult Gallary()
+        {
             return View();
         }
 
