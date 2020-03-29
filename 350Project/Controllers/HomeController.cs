@@ -93,6 +93,15 @@ namespace _350Project.Controllers
                     Session["MembershipTill"] = membertill[0];
                     Session["Password"] = model.Password;
                     Session["Gender"] = model.Gender;
+
+                    string mailbody = "Dear " + model.UserName + ",\n\t Lightweight workout thank you for your registation. We are looking " +
+                     "forward to workout with you.\n\n" +
+                     "Sincerely,\n\t Team Lightweight Workout";
+
+
+
+                    Email.SendEmail(mailbody, model.MemberEmail);
+
                     return RedirectToAction("Index", "Dashboard");
                 }
             }
