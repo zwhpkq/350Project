@@ -9,9 +9,9 @@
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body>
+<body style="padding-top:100px; padding-bottom:80px">
     <nav class="navbar navbar-expand-lg fixed-top bg-dark">
-        <img src="~/Content/Image/logo.png" width="5%" height="auto" alt="logo"><a class="navbar-brand" href="/Home/Index"></a>
+        <img src="~/Content/Image/logopng.png" width="15%" height="auto" alt="logo"><a class="navbar-brand" href="/Home/Index"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -42,77 +42,50 @@
                     <a style="color: coral" class="nav-link" href="/Home/Contact">Contact</a>
                 </li>
             </ul>
-            <button type="submit" class="btn btn-light btn-outline-light html-editor-align-right"><a style="text-decoration:none; color: coral; font-size: 25px" href="login.html">Sign in</a></button>
-        </div>
-    </nav>
-    <!--<div class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-            </button>
-            <a class="navbar-brand" href="/">LightWeightWorkout</a>
-            <div class="navbar-collapse collapse" id="navbarSupportedContent">
-                <ul class="nav navbar-nav mr-auto">
-
-
-                    <li class="nav-item"><a href="/Home/About" class="nav-link">About Us</a></li>
-                    <li class="nav-item"><a href="/Home/About" class="nav-link">Coaches</a></li>
-                    <li class="nav-item"><a href="/Home/Contact" class="nav-link">Activities</a></li>
-                    <li class="nav-item"><a href="/Home/Contact" class="nav-link">Reviews</a></li>
-                    <li class="nav-item"><a href="/Home/Contact" class="nav-link">Gallery</a></li>
-                    <li class="nav-item"><a href="/Home/Contact" class="nav-link">Contect Us</a></li>
+            @if ((string)Session["Email"] == "admin@admin")
+            {
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item"><a href="/Manage/Index" class="nav-link" style="text-decoration:none; color: aliceblue">Management</a></li>
                 </ul>
 
-                @if ((string)Session["Email"] == "admin@admin")
-                {
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="nav-item"><a href="/Manage/Index" class="nav-link">Management</a></li>
-                    </ul>
+            }
 
-                }
+            @if (Session["Username"] != null)
+            {
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item"><a href="/Dashboard/Index" class="nav-link" style="text-decoration:none; color: aliceblue">Hello @Session["Username"]</a></li>
+                    <li class="nav-item"><a href="/Account/Logout" class="nav-link" style="text-decoration:none; color: aliceblue">Log out</a></li>
+                </ul>
 
-                @if (Session["Username"] != null)
-                {
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="nav-item"><a href="/Dashboard/Index" class="nav-link">Hello @Session["Username"]</a></li>
-                        <li class="nav-item"><a href="/Account/Logout" class="nav-link">Log out</a></li>
-                    </ul>
-
-                }
-                @if (Session["Username"] == null)
-                {
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="nav-item"><a href="/Home/SignUp" id="loginLink" class="nav-link">Register</a></li>
-                        <li class="nav-item"><a href="/Account/Login" id="loginLink" class="nav-link">Log in</a></li>
-                    </ul>
-                }
-            </div>
+            }
+            @if (Session["Username"] == null)
+            {
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item"><a href="/Home/SignUp" id="loginLink" class="nav-link" style="text-decoration:none; color: aliceblue">Register</a></li>
+                    <li class="nav-item"><a href="/Account/Login" id="loginLink" class="nav-link" style="text-decoration:none; color: aliceblue">Log in</a></li>
+                </ul>
+            }
         </div>
-    </div> 
-    -->
-    <div class="container body-content">
+    </nav>
         @RenderBody()
-        <hr />
         <footer>
-            <div class="footer bg-dark">
+            <div class="footer bg-dark fixed-bottom" style="color: coral; height:80px">
                 <div class="footer-contain" style="width: 95%; margin: auto; padding: 10px">
                     <div class="footer-left">
                         <p>&copy; @DateTime.Now.Year - LightWeight Workout</p>
                         <p>light-weight</p>
                         <p>workout</p>
                     </div>
-                    <div class="logo" style="margin-left: 50%;margin-top: -60px; margin-bottom: 20px;">
-                        <img src="~/Content/Image/logo.png" style="width: 5%" alt="logo"><a class="navbar-brand" href="text.html"></a>
+                    <div class="logo" style="margin-left: 47%;margin-top: -110px; margin-bottom: 20px;">
+                        <img src="~/Content/Image/logopng.png" style="width: 15%" alt="logo"><a class="navbar-brand" href="/Home/Index"></a>
                     </div>
-                    <div class="footer-right float-right" style="margin-top: -80px">
+                    <div class="footer-right float-right" style="margin-top: -85px">
                         <p>Saskatoon</p>
                         <p>SK Canada</p>
                     </div>
                 </div>
             </div>
         </footer>
-    </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

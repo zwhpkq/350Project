@@ -1,5 +1,5 @@
 ﻿CREATE TABLE FitnessType
-(	Id INT Identity(1,1),
+(	Id INT Not null,
 	Descript varchar(20) NOT NULL,
 	PRIMARY KEY (Id));
 

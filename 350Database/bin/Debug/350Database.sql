@@ -15,8 +15,8 @@ SET NUMERIC_ROUNDABORT OFF;
 GO
 :setvar DatabaseName "350Database"
 :setvar DefaultFilePrefix "350Database"
-:setvar DefaultDataPath "C:\Users\danie\AppData\Local\Microsoft\VisualStudio\SSDT\350Project"
-:setvar DefaultLogPath "C:\Users\danie\AppData\Local\Microsoft\VisualStudio\SSDT\350Project"
+:setvar DefaultDataPath "C:\Users\confu\AppData\Local\Microsoft\VisualStudio\SSDT\350Project"
+:setvar DefaultLogPath "C:\Users\confu\AppData\Local\Microsoft\VisualStudio\SSDT\350Project"
 
 GO
 :on error exit
@@ -44,7 +44,7 @@ PRINT N'正在删除 <未命名>...';
 
 
 GO
-ALTER TABLE [dbo].[Members] DROP CONSTRAINT [CK__Members__Member___3D5E1FD2];
+ALTER TABLE [dbo].[Members] DROP CONSTRAINT [CK__Members__Member___00200768];
 
 
 GO

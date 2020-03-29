@@ -1,12 +1,17 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿@font-face {
+    font-family: Eusthalia Sans Slant;
+    src:url("~/fonts/Eusthalia Sans Slant.otf")
+}
+
+body {
+    padding-top: 70px;
+    padding-bottom: 80px;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -17,8 +22,10 @@
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
+/*
 input,
 select,
 textarea {
     max-width: 280px;
 }
+*/

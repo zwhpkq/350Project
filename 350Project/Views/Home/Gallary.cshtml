@@ -1,80 +1,170 @@
 ﻿
 @{
-	ViewBag.Title = "Gallary";
+    ViewBag.Title = "Gallary";
 }
 
 @section head{
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 }
 
-@Scripts.Render("~/bundles/gallary")
 @Styles.Render("~/Content/css1")
 
 
 <div class="contact-title bg-secondary text-white p-4" style="font: 50px 'Eusthalia Sans Slant'">Gallary</div>
 
-<div class="container">
+<!-- ***** Portfolio Area Start ***** -->
+<div class="portfolio-area section-padding-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="portfolio-title">
+                    <h2>“In photography there is a reality so subtle that it becomes more <span>real</span> than reality.”</h2>
+                </div>
+            </div>
+        </div>
 
-	<section class="main demo-2">
+        <div class="row justify-content-between">
+            <!-- Single Portfoio Area -->
+            <div class="col-12 col-md-5">
+                <div class="single-portfolio-item mt-100 portfolio-item-1 wow fadeIn">
+                    <div class="backend-content">
+                        <img class="dots" src="img/core-img/dots.png" alt="">
+                        <h2>Reality</h2>
+                    </div>
+                    <div class="portfolio-thumb">
+                        <img src="~/Content/Image/G1.jpg" alt="">
+                    </div>
+                    <div class="portfolio-meta">
+                        <p class="portfolio-date">Feb 02, 2018</p>
+                        <h2>User</h2>
+                    </div>
+                </div>
+            </div>
+            <!-- Single Portfoio Area -->
+            <div class="col-12 col-md-6">
+                <div class="single-portfolio-item mt-230 portfolio-item-2 wow fadeIn">
+                    <div class="backend-content">
+                        <img class="dots" src="img/core-img/dots.png" alt="">
+                    </div>
+                    <div class="portfolio-thumb">
+                        <img src="~/Content/Image/G2.jpg" alt="">
+                    </div>
+                    <div class="portfolio-meta">
+                        <p class="portfolio-date">Feb 02, 2018</p>
+                        <h2>User</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-		<div id="grid" class="grid clearfix">
+        <div class="row">
+            <!-- Single Portfoio Area -->
+            <div class="col-12 col-md-10">
+                <div class="single-portfolio-item mt-100 portfolio-item-3 wow fadeIn">
+                    <div class="backend-content">
+                        <img class="dots" src="img/core-img/dots.png" alt="">
+                        <h2>Photography</h2>
+                    </div>
+                    <div class="portfolio-thumb">
+                        <img src="~/Content/Image/G3.jpg" alt="">
+                    </div>
+                    <div class="portfolio-meta">
+                        <p class="portfolio-date">Feb 02, 2018</p>
+                        <h2>User</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-			<div class="uc-container">
-				<div class="uc-initial-content">
-					<img src="~/Content/images/thumbs/1.jpg" alt="image01" />
-					<span class="icon-eye"></span>
-				</div>
-				<div class="uc-final-content">
-					<img src="~/Content/images/large/1.jpg" alt="image01-large" />
-					<div class="title"><h4>The Professor</h4> by Dan Matutina <a href="http://www.htmleaf.com/" class="icon-link"></a></div>
-					<span class="icon-cancel"></span>
-				</div>
-			</div><!-- / uc-container -->
+        <div class="row justify-content-end">
+            <!-- Single Portfoio Area -->
+            <div class="col-12 col-md-6">
+                <div class="single-portfolio-item portfolio-item-4 wow fadeIn">
+                    <div class="backend-content">
+                        <img class="dots" src="img/core-img/dots.png" alt="">
+                    </div>
+                    <div class="portfolio-thumb">
+                        <img src="~/Content/Image/G4.png" alt="">
+                    </div>
+                    <div class="portfolio-meta">
+                        <p class="portfolio-date">Feb 02, 2018</p>
+                        <h2>User</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-			<div class="uc-container">
-				<div class="uc-initial-content">
-					<img src="~/Content/images/thumbs/2.jpg" alt="image02" />
-					<span class="icon-eye"></span>
-				</div>
-				<div class="uc-final-content">
-					<img src="~/Content/images/large/2.jpg" alt="image02-large" />
-					<div class="title"><h4>Planet</h4> by Dan Matutina <a href="http://www.htmleaf.com/" class="icon-link"></a></div>
-					<span class="icon-cancel"></span>
-				</div>
-			</div><!-- / uc-container -->
+        <div class="row">
+            <!-- Single Portfoio Area -->
+            <div class="col-12 col-md-5">
+                <div class="single-portfolio-item portfolio-item-5 wow fadeIn">
+                    <div class="backend-content">
+                        <img class="dots" src="img/core-img/dots.png" alt="">
+                        <h2>Hope</h2>
+                    </div>
+                    <div class="portfolio-thumb">
+                        <img src="~/Content/Image/G5.jpg" alt="">
+                    </div>
+                    <div class="portfolio-meta">
+                        <p class="portfolio-date">Feb 02, 2018</p>
+                        <h2>User</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-			<div class="uc-container">
-				<div class="uc-initial-content">
-					<img src="~/Content/images/thumbs/3.jpg" alt="image03" />
-					<span class="icon-eye"></span>
-				</div>
-				<div class="uc-final-content">
-					<img src="~/Content/images/large/3.jpg" alt="image03-large" />
-					<div class="title"><h4>Angry Nerd Blofeld</h4> by Dan Matutina <a href="http://www.htmleaf.com/" class="icon-link"></a></div>
-					<span class="icon-cancel"></span>
-				</div>
-			</div><!-- / uc-container -->
+        <div class="row justify-content-center">
+            <!-- Single Portfoio Area -->
+            <div class="col-12 col-md-4">
+                <div class="single-portfolio-item portfolio-item-6 wow fadeIn">
+                    <div class="portfolio-thumb">
+                        <img src="~/Content/Image/G6.jpg" alt="">
+                    </div>
+                    <div class="portfolio-meta">
+                        <p class="portfolio-date">Feb 02, 2018</p>
+                        <h2>User</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-			<div class="uc-container">
-				<div class="uc-initial-content">
-					<img src="~/Content/images/thumbs/4.jpg" alt="image04" />
-					<span class="icon-eye"></span>
-				</div>
-				<div class="uc-final-content">
-					<img src="~/Content/images/large/4.jpg" alt="image04-large" />
-					<div class="title"><h4>Ero Senin</h4> by Dan Matutina <a href="http://www.htmleaf.com/" class="icon-link"></a></div>
-					<span class="icon-cancel"></span>
-				</div>
-			</div><!-- / uc-container -->
-
-		</div><!-- / grid -->
-		<!--				<p class="info"><strong>Demo 2:</strong> Two folding steps with different directions of folding according to the grid position</p>-->
-	</section>
-
+        <div class="row justify-content-end">
+            <!-- Single Portfoio Area -->
+            <div class="col-12 col-md-4">
+                <div class="single-portfolio-item portfolio-item-7 wow fadeIn">
+                    <div class="backend-content">
+                        <img class="dots" src="img/core-img/dots.png" alt="">
+                        <h2>Future</h2>
+                    </div>
+                    <div class="portfolio-thumb">
+                        <img src="~/Content/Image/G7.jpg" alt="">
+                    </div>
+                    <div class="portfolio-meta">
+                        <p class="portfolio-date">Feb 02, 2018</p>
+                        <h2>User</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+<!-- ***** Portfolio Area End ***** -->
+<!-- ***** Call to Action Area Start ***** -->
+<div class="sonar-call-to-action-area section-padding-0-100">
+    <div class="backEnd-content">
+        <h2>Dream</h2>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="call-to-action-content wow fadeInUp" data-wow-delay="0.5s">
+                    <h2>I am an experienced photographer</h2>
+                    <h5>Let’s show</h5>
+                    <a href="#" class="btn sonar-btn mt-100">Upload photos</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ***** Call to Action Area End ***** -->

@@ -25,9 +25,7 @@ namespace _350Project
                       "~/Content/site.css"));
 
             bundles.Add(new StyleBundle("~/Content/css1").Include(
-                        "~/Content/custom2.css",
-                        "~/Content/demo.css",
-                        "~/Content/pfold.css"));
+                        "~/Content/style.css"));
 
             bundles.Add(new ScriptBundle("~/Content/gallary").Include(
                         "~/Scripts/jquery.min.js",
