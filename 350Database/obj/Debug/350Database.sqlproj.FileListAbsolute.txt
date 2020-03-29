@@ -10,3 +10,9 @@ C:\Users\zwhpk\Desktop\CMPT\350Project\git\350Project\350Database\bin\Debug\_350
 C:\Users\zwhpk\Desktop\CMPT\350Project\git\350Project\350Database\obj\Debug\350Database.sqlprojAssemblyReference.cache
 C:\Users\zwhpk\Desktop\CMPT\350Project\git\350Project\350Database\obj\Debug\_350Database.dll
 C:\Users\zwhpk\Desktop\CMPT\350Project\git\350Project\350Database\obj\Debug\_350Database.pdb
+D:\cmpt350\git\350Project\350Database\bin\Debug\350Database.dacpac
+D:\cmpt350\git\350Project\350Database\bin\Debug\_350Database.dll
+D:\cmpt350\git\350Project\350Database\bin\Debug\_350Database.pdb
+D:\cmpt350\git\350Project\350Database\obj\Debug\350Database.sqlprojAssemblyReference.cache
+D:\cmpt350\git\350Project\350Database\obj\Debug\_350Database.dll
+D:\cmpt350\git\350Project\350Database\obj\Debug\_350Database.pdb
