@@ -1,6 +1,6 @@
 ﻿CREATE TABLE Coaches 
 (
-	Coach_ID INT Identity(1,1),
+	Coach_ID INT NOT NULL,
 	First_Name VARCHAR(20) NOT NULL,
 	Last_Name VARCHAR(20) NOT NULL,
 	Coach_Gender VARCHAR(10) NOT NULL,

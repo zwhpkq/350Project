@@ -44,7 +44,7 @@ PRINT N'正在删除 <未命名>...';
 
 
 GO
-ALTER TABLE [dbo].[Members] DROP CONSTRAINT [CK__Members__Member___00200768];
+ALTER TABLE [dbo].[Members] DROP CONSTRAINT [CK__Members__Member___08B54D69];
 
 
 GO
